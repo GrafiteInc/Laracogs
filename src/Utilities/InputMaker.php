@@ -290,6 +290,13 @@ class InputMaker
     {
         $options = '';
         foreach ($config['field']['options'] as $key => $value) {
+            // Add ability to switch labels and values. This is done automatically by relationship fields
+            if (isset($config['field']['switch']) && $config['field']['switch'])) {
+                $temp = $key;
+                $key = $value;
+                $value = $temp;
+            }
+            
             if ($selected == '') {
                 $selectedValue = ((string) $config['objectValue'] === (string) $value) ? 'selected' : '';
             } else {
@@ -351,9 +358,11 @@ class InputMaker
 
         $class = app()->make($config['field']['model']);
         $items = $class->all();
+        
+        $config['field']['switch'] = true;
 
         foreach ($items as $item) {
-            $config['field']['options'][$item->$label] = $item->$value;
+            $config['field']['options'][$item->$value] = $item->$label;
         }
 
         $selected = '';
