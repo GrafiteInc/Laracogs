@@ -360,7 +360,7 @@ class InputMaker
         $items = $class->all();
 
         foreach ($items as $item) {
-            if ($config['field']['switch']) {
+            if (isset($config['field']['switch']) && $config['field']['switch']) {
                 $config['field']['options'][$item->$value] = $item->$label;
             } else {
                 $config['field']['options'][$item->$label] = $item->$value;
