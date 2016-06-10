@@ -290,6 +290,13 @@ class InputMaker
     {
         $options = '';
         foreach ($config['field']['options'] as $key => $value) {
+            // Add ability to switch labels and values. This is done automatically by relationship fields
+            if (isset($config['field']['switch']) && $config['field']['switch'])) {
+                $temp = $key;
+                $key = $value;
+                $value = $temp;
+            }
+            
             if ($selected == '') {
                 $selectedValue = ((string) $config['objectValue'] === (string) $value) ? 'selected' : '';
             } else {
@@ -353,8 +360,15 @@ class InputMaker
         $items = $class->all();
 
         foreach ($items as $item) {
-            $config['field']['options'][$item->$label] = $item->$value;
+            if (isset($config['field']['switch']) && $config['field']['switch']) {
+                $config['field']['options'][$item->$value] = $item->$label;
+            } else {
+                $config['field']['options'][$item->$label] = $item->$value;
+            }
         }
+        
+        // Already changed the order of options above, no need to switch in makeSelected()
+        $config['field']['switch'] = false;
 
         $selected = '';
         if (is_object($object) && $object->$relationship()->first()) {
