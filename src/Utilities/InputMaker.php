@@ -360,8 +360,15 @@ class InputMaker
         $items = $class->all();
 
         foreach ($items as $item) {
-            $config['field']['options'][$item->$value] = $item->$label;
+            if ($config['field']['switch']) {
+                $config['field']['options'][$item->$value] = $item->$label;
+            } else {
+                $config['field']['options'][$item->$label] = $item->$value;
+            }
         }
+        
+        // Already changed the order of options above, no need to switch in makeSelected()
+        $config['field']['switch'] = false;
 
         $selected = '';
         if (is_object($object) && $object->$relationship()->first()) {
