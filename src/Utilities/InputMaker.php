@@ -358,8 +358,6 @@ class InputMaker
 
         $class = app()->make($config['field']['model']);
         $items = $class->all();
-        
-        $config['field']['switch'] = true;
 
         foreach ($items as $item) {
             $config['field']['options'][$item->$value] = $item->$label;
