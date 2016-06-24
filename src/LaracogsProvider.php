@@ -2,8 +2,8 @@
 
 namespace Yab\Laracogs;
 
-use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
 use Yab\Laracogs\Utilities\Crypto;
 use Yab\Laracogs\Utilities\FormMaker;
@@ -12,16 +12,15 @@ use Yab\Laracogs\Utilities\InputMaker;
 class LaracogsProvider extends ServiceProvider
 {
     /**
-     * Boot method.
-     *
+     * Boot method
      * @return void
      */
     public function boot()
     {
         @mkdir(base_path('resources/laracogs/crud'));
         $this->publishes([
-            __DIR__.'/Templates'                   => base_path('resources/laracogs/crud'),
-            __DIR__.'/Starter/config/laracogs.php' => base_path('config/laracogs.php'),
+            __DIR__.'/Templates' => base_path('resources/laracogs/crud'),
+            __DIR__.'/Packages/Starter/config/laracogs.php' => base_path('config/laracogs.php'),
         ]);
     }
 
@@ -85,7 +84,7 @@ class LaracogsProvider extends ServiceProvider
             return "<?php echo FormMaker::fromArray$expression; ?>";
         });
 
-        Blade::directive('form_maker_object', function ($expression) {
+        Blade::directive('form_maker_object', function($expression) {
             return "<?php echo FormMaker::fromObject$expression; ?>";
         });
 
