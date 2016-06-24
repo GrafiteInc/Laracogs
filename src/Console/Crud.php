@@ -107,6 +107,7 @@ class Crud extends Command
             'semantic'                   => false,
             'relationships'              => null,
             'schema'                     => null,
+            'facades'                    => true,
             '_sectionPrefix_'            => '',
             '_sectionTablePrefix_'       => '',
             '_sectionRoutePrefix_'       => '',
@@ -149,6 +150,8 @@ class Crud extends Command
 
         $config['template_source'] = Config::get('laracogs.crud.template_source', $templateDirectory);
 
+        $config['facades'] = Config::get('laracogs.crud.facades', $config['facades']);
+
         $config = array_merge($config, Config::get('laracogs.crud.single', []));
         $config = $this->setConfig($config, $section, $table);
 
@@ -160,6 +163,7 @@ class Crud extends Command
                 'semantic'                   => false,
                 'relationships'              => null,
                 'schema'                     => null,
+                'facades'                    => true,
                 '_sectionPrefix_'            => strtolower($section).'.',
                 '_sectionTablePrefix_'       => strtolower($section).'_',
                 '_sectionRoutePrefix_'       => strtolower($section).'/',
@@ -201,6 +205,9 @@ class Crud extends Command
             }
 
             $config['template_source'] = Config::get('laracogs.crud.template_source', $templateDirectory);
+
+            $config['facades'] = Config::get('laracogs.crud.facades', $config['facades']);
+
             $config = array_merge($config, Config::get('laracogs.crud.sectioned', []));
 
             $config = $this->setConfig($config, $section, $table);
@@ -252,8 +259,10 @@ class Crud extends Command
                 $this->line('Building routes...');
                 $crudGenerator->createRoutes($config, false);
 
-                $this->line('Building facade...');
-                $crudGenerator->createFacade($config);
+                if ($config['facades']) {
+                    $this->line('Building facade...');
+                    $crudGenerator->createFacade($config);
+                }
             } else {
                 $config['tests_generated'] = 'service,repository';
             }
