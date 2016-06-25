@@ -154,6 +154,7 @@ class CrudGenerator
      * Create the routes.
      *
      * @param array $config
+     * @param bool  $appendRoutes
      *
      * @return bool
      */
@@ -297,6 +298,7 @@ class CrudGenerator
      * Create the Api.
      *
      * @param array $config
+     * @param bool  $appendRoutes
      *
      * @return bool
      */
