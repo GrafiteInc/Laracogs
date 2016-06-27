@@ -161,7 +161,6 @@ class FormMaker
         $reformatted = false,
         $timestamps = false
     ) {
-        $originalColumns = $columns;
         $formBuild = '';
 
         if (is_null($columns)) {
