@@ -5,7 +5,7 @@
         <div class="header">
             <h1>Team Editor</h1>
         </div>
-<div class="content">
+        <div class="content">
             @include('partials.errors')
             @include('partials.message')
         </div>

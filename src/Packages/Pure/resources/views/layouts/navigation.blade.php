@@ -1,4 +1,3 @@
-!-- Menu toggle -->
         <a href="#menu" id="menuLink" class="menu-link">
         <!-- Hamburger icon -->
         <span></span>
