@@ -10,23 +10,23 @@
             <form method="POST" action="/register">
                 {!! csrf_field() !!}
 
-                <div class="col-md-12 raw-margin-top-24">
+                <div class="pure-control-group">
                     <label>Name</label>
                     <input class="form-control" type="text" name="name" value="{{ old('name') }}">
                 </div>
-                <div class="col-md-12 raw-margin-top-24">
+                <div class="pure-control-group">
                     <label>Email</label>
                     <input class="form-control" type="email" name="email" value="{{ old('email') }}">
                 </div>
-                <div class="col-md-12 raw-margin-top-24">
+                <div class="pure-control-group">
                     <label>Password</label>
                     <input class="form-control" type="password" name="password">
                 </div>
-                <div class="col-md-12 raw-margin-top-24">
+                <div class="pure-control-group">
                     <label>Confirm Password</label>
                     <input class="form-control" type="password" name="password_confirmation">
                 </div>
-                <div class="col-md-12 raw-margin-top-24">
+                <div class="pure-control-group">
                     <a class="btn btn-default pull-left" href="/login">Login</a>
                     <button class="btn btn-primary pull-right" type="submit">Register</button>
                 </div>
