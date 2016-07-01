@@ -2,13 +2,11 @@
 
 @section('content')
 
-    <div class="row">
-        <div class="col-md-12">
+        <div class="header">
             <h1>Settings</h1>
+            <h2>User level settings</h2>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
+        <div class="content">
             <form method="POST" action="/user/settings" class="pure-form pure-form-aligned">
                 {!! csrf_field() !!}
 
@@ -34,10 +32,9 @@
                 <div class="pure-control-group">
                     <a class="button-secondary pure-button" href="{{ URL::previous() }}">Cancel</a>
                     <button class="pure-button pure-button-primary" type="submit">Save</button>
-                    <a class="btn btn-info pull-right raw-margin-right-16" href="/user/password">Change Password</a><br>
+                    <a class="pure-button button-info" href="/user/password">Change Password</a><br>
                 </div>
             </form>
         </div>
-    </div>
 
 @stop

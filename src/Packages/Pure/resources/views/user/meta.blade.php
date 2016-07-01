@@ -9,7 +9,7 @@
         @input_maker_label('I agree to recieve marketing materials')
     </div>
 
-    <div class="pure-control-group">
+    <div class="pure-control-group pure-checkbox">
         <label>
             <input type="checkbox" name="meta[terms_and_cond]" value="1" @if ($user->meta->terms_and_cond) checked @endif>
             I agree to the <a href="{{ url('terms-and-conditions') }}">Terms &amp; Conditions</a>
