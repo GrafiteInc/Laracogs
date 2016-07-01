@@ -2,8 +2,6 @@
 
 @section('app-content')
 
-    <div id="main">
-        @yield('content')
-    </div>
+@yield('content')
 
 @stop

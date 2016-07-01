@@ -1,8 +1,8 @@
-(function (window, document) {
+$(function(){
 
-    var layout   = document.getElementById('layout'),
-        menu     = document.getElementById('menu'),
-        menuLink = document.getElementById('menuLink');
+    var layout   = $('#layout')[0],
+        menu     = $('#menu')[0],
+        menuLink = $('#menuLink')[0];
 
     function toggleClass(element, className) {
         var classes = element.className.split(/\s+/),
@@ -32,9 +32,7 @@
         toggleClass(menuLink, active);
     };
 
-}(this, this.document));
 
-$(function(){
 
     $('.alert').delay(7000).fadeOut();
 
