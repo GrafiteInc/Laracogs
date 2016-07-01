@@ -27,9 +27,6 @@
                 <div class="pure-control-group">
                     <a class="button-secondary pure-button" href="/password/email">Forgot Password</a>
                     <button class="pure-button pure-button-primary" type="submit">Login</button>
-                </div>
-
-                <div class="pure-control-group">
                     <a class="pure-button button-info" href="/register">Register</a>
                 </div>
             </form>

@@ -2,12 +2,14 @@
 
 @section('app-content')
 
-    <div class="row">
-        <div class="col-md-4 col-md-offset-4">
+        <div class="header">
+            <h1>Password Reset</h1>
+            <h2>Get your password reset</h2>
+        </div>
 
-            <h1 class="text-center">Password Reset</h1>
+        <div class="content">
 
-            <form method="POST" action="/password/reset">
+            <form method="POST" action="/password/reset" class="pure-form pure-form-aligned">
                 {!! csrf_field() !!}
                 <input type="hidden" name="token" value="{{ $token }}">
 
@@ -28,6 +30,5 @@
                 </div>
             </form>
         </div>
-    </div>
 
 @stop
