@@ -20,7 +20,7 @@
 
                 @form_maker_object($team, ['name' => 'string'])
 
-                {!! Form::submit('Update', ['class' => 'btn btn-primary pull-right']) !!}
+                {!! Form::submit('Update', ['class' => 'ure-button pure-button-primary']) !!}
 
                 {!! Form::close() !!}
             </div>

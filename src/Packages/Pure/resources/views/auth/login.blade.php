@@ -9,7 +9,7 @@
 
         <div class="content">
 
-            <form method="POST" action="/login">
+            <form method="POST" action="/login" class="pure-form pure-form-aligned">
                 {!! csrf_field() !!}
                 <div class="pure-control-group">
                     <label>Email</label>
@@ -25,17 +25,16 @@
                     </label>
                 </div>
                 <div class="pure-control-group">
-                    <a class="btn btn-default pull-left" href="/password/email">Forgot Password</a>
-                    <button class="btn btn-primary pull-right" type="submit">Login</button>
+                    <a class="button-secondary pure-button" href="/password/email">Forgot Password</a>
+                    <button class="pure-button pure-button-primary" type="submit">Login</button>
                 </div>
 
                 <div class="pure-control-group">
-                    <a class="btn raw100 btn-info" href="/register">Register</a>
+                    <a class="pure-button button-info" href="/register">Register</a>
                 </div>
             </form>
 
         </div>
-    </div>
 
 @stop
 

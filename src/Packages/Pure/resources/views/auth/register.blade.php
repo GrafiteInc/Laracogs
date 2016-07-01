@@ -2,10 +2,12 @@
 
 @section('app-content')
 
-    <div class="row">
-        <div class="col-md-4 col-md-offset-4">
+        <div class="header">
+            <h1>Register</h1>
+            <h2>Get access to this site</h2>
+        </div>
 
-            <h1 class="text-center">Register</h1>
+        <div class="content">
 
             <form method="POST" action="/register">
                 {!! csrf_field() !!}
@@ -27,12 +29,11 @@
                     <input class="form-control" type="password" name="password_confirmation">
                 </div>
                 <div class="pure-control-group">
-                    <a class="btn btn-default pull-left" href="/login">Login</a>
-                    <button class="btn btn-primary pull-right" type="submit">Register</button>
+                    <a class="button-secondary pure-button" href="/login">Login</a>
+                    <button class="pure-button pure-button-primary" type="submit">Register</button>
                 </div>
             </form>
 
         </div>
-    </div>
 
 @stop

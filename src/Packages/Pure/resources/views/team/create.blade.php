@@ -20,7 +20,7 @@
 
                 @form_maker_table("teams", ['name' => 'string'])
 
-                {!! Form::submit('Save', ['class' => 'btn btn-primary pull-right']) !!}
+                {!! Form::submit('Save', ['class' => 'ure-button pure-button-primary']) !!}
 
                 {!! Form::close() !!}
             </div>

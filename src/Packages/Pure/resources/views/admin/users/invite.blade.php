@@ -2,14 +2,13 @@
 
 @section('content')
 
-    <div class="row">
-        <div class="col-md-12">
+
+    <div class="header">
             <h1>User Admin: Invite</h1>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <form method="POST" action="/admin/users/invite">
+
+        <div class="content">
+            <form method="POST" action="/admin/users/invite" class="pure-form pure-form-aligned">
                 {!! csrf_field() !!}
 
                 <div class="pure-control-group">
@@ -28,11 +27,10 @@
                 </div>
 
                 <div class="pure-control-group">
-                    <a class="btn btn-default pull-left" href="{{ URL::previous() }}">Cancel</a>
-                    <button class="btn btn-primary pull-right" type="submit">Invite</button>
+                    <a class="button-secondary pure-button" href="{{ URL::previous() }}">Cancel</a>
+                    <button class="pure-button pure-button-primary" type="submit">Invite</button>
                 </div>
             </form>
         </div>
-    </div>
 
 @stop

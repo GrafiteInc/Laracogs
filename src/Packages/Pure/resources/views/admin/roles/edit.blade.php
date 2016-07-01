@@ -2,14 +2,12 @@
 
 @section('content')
 
-    <div class="row">
-        <div class="col-md-12">
+    <div class="header">
             <h1>Role Admin: Edit</h1>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <form method="POST" action="/admin/roles/{{ $role->id }}">
+
+        <div class="content">
+            <form method="POST" action="/admin/roles/{{ $role->id }}" class="pure-form pure-form-aligned">
                 <input name="_method" type="hidden" value="PATCH">
                 {!! csrf_field() !!}
 
@@ -24,11 +22,10 @@
                 </div>
 
                 <div class="pure-control-group">
-                    <a class="btn btn-default pull-left" href="{{ URL::previous() }}">Cancel</a>
-                    <button class="btn btn-primary pull-right" type="submit">Save</button>
+                    <a class="button-secondary pure-button" href="{{ URL::previous() }}">Cancel</a>
+                    <button class="pure-button pure-button-primary" type="submit">Save</button>
                 </div>
             </form>
         </div>
-    </div>
 
 @stop
