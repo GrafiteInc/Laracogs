@@ -22,5 +22,10 @@
                 <li class="pure-menu-item"><a href="/login">Login</a></li>
             @endif
             </ul>
+            <a class="pure-menu-heading" href="#">&copy; {!! date('Y'); !!} Brand</a>
+            @if (Session::get('original_user'))
+            <a class="pure-menu-heading button-danger" href="/users/switch-back">Switch Login</a>
+            @endif
+
         </div>
     </div>
