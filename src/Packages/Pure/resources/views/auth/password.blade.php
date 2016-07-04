@@ -9,7 +9,7 @@
 
         <div class="content">
 
-            <form method="POST" action="/password/email" class="pure-form pure-form-aligned">
+            <form method="POST" action="/password/email" class="pure-form pure-form-aligned" id="login">
                 {!! csrf_field() !!}
                 @include('partials.errors')
                 @include('partials.status')

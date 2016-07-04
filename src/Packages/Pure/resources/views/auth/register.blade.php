@@ -9,7 +9,7 @@
 
         <div class="content">
 
-            <form method="POST" action="/register" class="pure-form pure-form-aligned">
+            <form method="POST" action="/register" class="pure-form pure-form-aligned" id="login">
                 {!! csrf_field() !!}
 
                 <div class="pure-control-group">

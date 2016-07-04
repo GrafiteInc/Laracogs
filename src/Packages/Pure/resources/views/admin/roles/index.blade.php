@@ -2,19 +2,23 @@
 
 @section('content')
 
-    <div class="row">
-        <div class="col-md-12">
-            <form id="" class="pull-right raw-margin-top-24 raw-margin-left-24" method="post" action="/admin/roles/search">
+        <div class="header">
+            <h1>Role Admin</h1>
+        </div>
+
+        <div class="content">
+
+    <div class="pure-g">
+            <form id="" class="pure-form pure-u-1-2" method="post" action="/admin/roles/search">
                 {!! csrf_field() !!}
                 <input class="form-control" name="search" placeholder="Search">
             </form>
-            <a class="btn btn-default pull-right raw-margin-top-24" href="{{ url('admin/roles/create') }}">Create New Role</a>
-            <h1>Role Admin</h1>
+            <div class="pure-u-1-2">
+            <a class="pure-button pure-button-primary" href="{{ url('admin/roles/create') }}">Create New Role</a>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <table class="table table-striped raw-margin-top-24">
+    </p>
+            <table class="pure-table pure-table-horizontal">
 
                 <thead>
                     <th>Name</th>
@@ -30,9 +34,9 @@
                                 <form method="post" action="{!! url('admin/roles/'.$role->id) !!}">
                                     {!! csrf_field() !!}
                                     {!! method_field('DELETE') !!}
-                                    <button class="btn btn-danger btn-xs pull-right" type="submit" onclick="return confirm('Are you sure you want to delete this role?')"><i class="fa fa-trash"></i> Delete</button>
+                                    <button class="pure-button button-warning button-small" type="submit" onclick="return confirm('Are you sure you want to delete this role?')"><i class="fa fa-trash"></i> Delete</button>
                                 </form>
-                                <a class="btn btn-warning btn-xs pull-right raw-margin-right-16" href="{{ url('admin/roles/'.$role->id.'/edit') }}"><span class="fa fa-edit"></span> Edit</a>
+                                <a class="pure-button pure-button-primary button-small" href="{{ url('admin/roles/'.$role->id.'/edit') }}"><span class="fa fa-edit"></span> Edit</a>
                             </td>
                         </tr>
                     @endforeach
@@ -40,7 +44,7 @@
                 </tbody>
 
             </table>
-        </div>
-    </div>
+    </p>
+</div>
 
 @stop

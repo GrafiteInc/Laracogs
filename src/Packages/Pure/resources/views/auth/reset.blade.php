@@ -9,7 +9,7 @@
 
         <div class="content">
 
-            <form method="POST" action="/password/reset" class="pure-form pure-form-aligned">
+            <form method="POST" action="/password/reset" class="pure-form pure-form-aligned" id="login">
                 {!! csrf_field() !!}
                 <input type="hidden" name="token" value="{{ $token }}">
 
