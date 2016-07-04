@@ -1,0 +1,60 @@
+@extends('dashboard', ['pageTitle' => '_camelUpper_casePlural_ &raquo; Index'])
+
+@section('content')
+
+        <div class="header">
+            <h1>_ucCamel_casePlural_</h1>
+        </div>
+
+		<div class="content">
+                <div class="pure-g">
+                        <div class="pure-u-1 pure-u-md-1-2">
+                            {!! Form::open(['url' => '_sectionPrefix__lower_casePlural_/search', 'class' => '']) !!}
+                            <div class="field">
+                                <input class="fluid" name="search" placeholder="Search">
+                            </div>
+                            {!! Form::close() !!}
+                        </div>
+                        <div class="pure-u-1 pure-u-md-1-2">
+                            <a class="pure-button pure-button-primary" href="{!! route('_sectionPrefix__lower_casePlural_.create') !!}">Add New</a>
+                        </div>
+                </div>
+
+                <p>
+                @if ($_lower_casePlural_->isEmpty())
+                        <div class="well center aligned">No _camel_casePlural_ found.</div>
+                @else
+						<table class="pure-table pure-table-horizontal">
+                            <thead>
+                                <th>Name</th>
+                                <th width="250px" class="right aligned">Action</th>
+                            </thead>
+                            <tbody>
+                            @foreach($_lower_casePlural_ as $_lower_case_)
+                                <tr>
+                                    <td>
+                                        <a href="{!! route('_sectionPrefix__lower_casePlural_.edit', [$_lower_case_->id]) !!}">{{ $_lower_case_->name }}</a>
+                                    </td>
+                                    <td class="text-right">
+                                        <form method="post" action="{!! url('_sectionPrefix__lower_casePlural_/'.$_lower_case_->id) !!}">
+                                            {!! csrf_field() !!}
+                                            {!! method_field('DELETE') !!}
+                                            <button class="pure-button button-warning button-small" type="submit" onclick="return confirm('Are you sure you want to delete this _lower_case_?')"><i class="fa fa-trash"></i> Delete</button>
+                                        </form>
+                                        <a class="pure-button pure-button-primary button-small" href="{!! route('_sectionPrefix__lower_casePlural_.edit', [$_lower_case_->id]) !!}"><i class="fa fa-pencil"></i> Edit</a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                @endif
+                <p>
+
+        <div class="pure-g">
+            <div class="pure-u-1 pure-u-md-1-1">
+                {{ $_lower_casePlural_ }}
+            </div>
+        </div>
+    </div>
+
+@stop

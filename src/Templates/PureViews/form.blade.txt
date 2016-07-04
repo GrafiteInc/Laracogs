@@ -1,0 +1,7 @@
+<div class="pure-control-group">
+    <div class="{{ $errorHighlight }}">
+        <label for="{!! $labelFor !!}">{!! $label !!}</label>
+            {!! $input !!}
+    </div>
+    {!! $errorMessage !!}
+</div>

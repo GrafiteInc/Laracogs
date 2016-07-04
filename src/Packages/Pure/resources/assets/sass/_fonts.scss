@@ -1,0 +1,15 @@
+* {
+	font-family: 'Merriweather', serif;
+	font-smoothing: antialiased;
+}
+
+$start: 3em; 
+@each $h in h1, h2, h3, h4, h5, h6{
+    #{$h} { 
+      font-size: $start;
+      font-family:'Lato', sans-serif;
+      font-smoothing: antialiased;
+      }
+
+      $start: $start - 0.2;
+  }

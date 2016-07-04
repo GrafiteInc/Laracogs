@@ -248,13 +248,13 @@ class FormMaker
 
         if (is_null($view)) {
             if (isset($field['type']) && (stristr($field['type'], 'radio') || stristr($field['type'], 'checkbox'))) {
-                $formBuild .= '<div class="'.$errorHighlight.'">';
+                $formBuild .= '<div class=" pure-control-group '.$errorHighlight.'">';
                 $formBuild .= '<div class="'.$field['type'].'"><label>'.$input.$this->inputUtilities->cleanString($this->columnLabel($field, $column)).'</label>'.$this->errorMessage($errorMessage).'</div>';
             } elseif (isset($field['type']) && (stristr($field['type'], 'hidden'))) {
-                $formBuild .= '<div class="form-group '.$errorHighlight.'">';
+                $formBuild .= '<div class="form-group pure-control-group '.$errorHighlight.'">';
                 $formBuild .= $input;
             } else {
-                $formBuild .= '<div class="form-group '.$errorHighlight.'">';
+                $formBuild .= '<div class="form-group pure-control-group '.$errorHighlight.'">';
                 $formBuild .= '<label class="control-label" for="'.ucfirst($column).'">'.$this->inputUtilities->cleanString($this->columnLabel($field, $column)).'</label>'.$input.$this->errorMessage($errorMessage);
             }
 

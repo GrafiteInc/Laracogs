@@ -178,6 +178,13 @@ Bootstrap prepares your application with bootstrap as a view/ css framework.
 php artisan laracogs:bootstrap
 ```
 
+### Pure
+----
+Pure prepares your application with Yahoo's PureCSS as a view/ css framework.
+```php
+php artisan laracogs:pure
+```
+
 ### Semantic
 ----
 Semantic prepares your application with semantic-ui as a view/ css framework.

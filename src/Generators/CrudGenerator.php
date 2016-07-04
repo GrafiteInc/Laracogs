@@ -279,6 +279,10 @@ class CrudGenerator
             $viewTemplates = 'SemanticViews';
         }
 
+        if ($config['pure']) {
+            $viewTemplates = 'PureViews';
+        }
+
         $createdView = false;
 
         foreach (glob($config['template_source'].'/'.$viewTemplates.'/*') as $file) {

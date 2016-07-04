@@ -17,7 +17,7 @@ class TableCrud extends Command
      *
      * @var string
      */
-    protected $signature = 'laracogs:table-crud {table} {--api} {--migration} {--bootstrap} {--semantic}';
+    protected $signature = 'laracogs:table-crud {table} {--api} {--migration} {--bootstrap} {--pure} {--semantic} ';
 
     /**
      * The console command description.
@@ -43,6 +43,7 @@ class TableCrud extends Command
             '--migration' => $this->option('migration'),
             '--bootstrap' => $this->option('bootstrap'),
             '--semantic'  => $this->option('semantic'),
+            '--pure'      => $this->option('pure'),
             '--schema'    => $tableDefintion,
         ]);
 
