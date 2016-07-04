@@ -6,27 +6,20 @@
             <h1>_ucCamel_casePlural_: Create</h1>
         </div>
 
-		<div class="content">
-
-                <div class="pure-g">
-                        <div class="pure-u-1 pure-u-md-1-2">
-                            {!! Form::open(['url' => '_sectionPrefix__lower_casePlural_/search', 'class' => '']) !!}
+        <div class="content">
+            <div class="pure-g">
+                            {!! Form::open(['url' => '_sectionPrefix__lower_casePlural_/search', 'class' =>'pure-form pure-u-1-2']) !!}
                             <div class="field">
                                 <input class="fluid" name="search" placeholder="Search">
                             </div>
                             {!! Form::close() !!}
-                        </div>
-                </div>
-				
-        <div class="pure-g">
-            <div class="pure-u-1 pure-u-md-1-2">
+            </div>
                     {!! Form::open(['route' => '_sectionPrefix__lower_casePlural_.store', 'class' => 'pure-form pure-form-aligned']) !!}
                         @form_maker_table("_lower_casePlural_", FormMaker::getTableColumns("_sectionTablePrefix__lower_casePlural_"), '', '_sectionPrefix__lower_casePlural_.form')
                         <div class="pure-controls">
                                 {!! Form::submit('Save', ['class' => 'pure-button pure-button-primary']) !!}
                         </div>
                     {!! Form::close() !!}
-            </div>
         </div>
 
 @stop

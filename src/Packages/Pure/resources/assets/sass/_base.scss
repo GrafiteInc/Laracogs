@@ -44,6 +44,8 @@ The content `<div>` is where all your content goes.
     max-width: 800px;
     margin-bottom: 50px;
     line-height: 1.6em;
+    text-align: center;
+
 }
 
 .header {
@@ -52,6 +54,7 @@ The content `<div>` is where all your content goes.
      text-align: center;
      padding: 2.5em 2em 0;
      border-bottom: 1px solid #eee;
+     margin-bottom: 1em;
  }
     .header h1 {
         margin: 0.2em 0;
@@ -114,6 +117,7 @@ appears on the left side of the page.
     #menu .pure-menu ul,
     #menu .pure-menu .menu-item-divided {
         border-top: 1px solid #333;
+        padding-bottom: 1em;
     }
         /*
         Change color of the anchor links on hover/focus.
@@ -259,3 +263,23 @@ Hides the menu at `48em`, but modify this based on your app's needs.
     z-index: 10000;
 }
 
+
+.pure-table {
+    width: 100%;
+}
+
+.pure-table td {
+    text-align:left;
+}
+
+.pure-table button.pure-button.button-warning {
+    float: left;
+    margin-right: 0.3em;
+}
+
+.text-center {
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 1em;
+    text-align: center;
+}

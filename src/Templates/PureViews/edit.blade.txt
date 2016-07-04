@@ -7,29 +7,22 @@
         </div>
 
 		<div class="content">
-
                 <div class="pure-g">
-                        <div class="pure-u-1 pure-u-md-1-2">
-                            {!! Form::open(['url' => '_sectionPrefix__lower_casePlural_/search', 'class' => '']) !!}
+                            {!! Form::open(['url' => '_sectionPrefix__lower_casePlural_/search', 'class' =>'pure-form pure-u-1-2']) !!}
                             <div class="field">
                                 <input class="fluid" name="search" placeholder="Search">
                             </div>
                             {!! Form::close() !!}
-                        </div>
-                        <div class="pure-u-1 pure-u-md-1-2">
+                        <div class="pure-u-1-2">
                             <a class="pure-button pure-button-primary" href="{!! route('_sectionPrefix__lower_casePlural_.create') !!}">Add New</a>
                         </div>
                 </div>
-
-        <div class="pure-g">
-            <div class="pure-u-1 pure-u-md-1-2">
                     {!! Form::model($_lower_case_, ['route' => ['_sectionPrefix__lower_casePlural_.update', $_lower_case_->id], 'method' => 'patch', 'class' => 'pure-form pure-form-aligned']) !!}
                     @form_maker_object($_lower_case_, FormMaker::getTableColumns('_sectionTablePrefix__lower_casePlural_'), '_sectionPrefix__lower_casePlural_.form')
                     <div class="pure-controls">
                             {!! Form::submit('Update', ['class' => 'pure-button pure-button-primary']) !!}
                     </div>
                     {!! Form::close() !!}
-            </div>
         </div>
 
 @stop

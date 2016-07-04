@@ -20,10 +20,9 @@
                         </div>
                 </div>
 
-        <div class="pure-g">
-            <div class="pure-u-1 pure-u-md-1-1">
+                <p>
                 @if ($_lower_casePlural_->isEmpty())
-                        <p class="well center aligned">No _camel_casePlural_ found.</p>
+                        <div class="well center aligned">No _camel_casePlural_ found.</div>
                 @else
 						<table class="pure-table pure-table-horizontal">
                             <thead>
@@ -40,17 +39,16 @@
                                         <form method="post" action="{!! url('_sectionPrefix__lower_casePlural_/'.$_lower_case_->id) !!}">
                                             {!! csrf_field() !!}
                                             {!! method_field('DELETE') !!}
-                                            <button class="pure-button button-danger button-xsmall" type="submit" onclick="return confirm('Are you sure you want to delete this _lower_case_?')"><i class="fa fa-trash"></i> Delete</button>
+                                            <button class="pure-button button-danger button-small" type="submit" onclick="return confirm('Are you sure you want to delete this _lower_case_?')"><i class="fa fa-trash"></i> Delete</button>
                                         </form>
-                                        <a class="pure-button pure-button-primary button-xsmall" href="{!! route('_sectionPrefix__lower_casePlural_.edit', [$_lower_case_->id]) !!}"><i class="fa fa-pencil"></i> Edit</a>
+                                        <a class="pure-button pure-button-primary button-small" href="{!! route('_sectionPrefix__lower_casePlural_.edit', [$_lower_case_->id]) !!}"><i class="fa fa-pencil"></i> Edit</a>
                                     </td>
                                 </tr>
                             @endforeach
                             </tbody>
                         </table>
                 @endif
-            </div>
-        </div>
+                <p>
 
         <div class="pure-g">
             <div class="pure-u-1 pure-u-md-1-1">
