@@ -1,5 +1,7 @@
 # Laracogs
 
+[![Join the chat at https://gitter.im/YABhq/Laracogs](https://badges.gitter.im/YABhq/Laracogs.svg)](https://gitter.im/YABhq/Laracogs?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 **Laracogs** - A handful of tools for Laravel
 
 [![Codeship](https://img.shields.io/codeship/013b03f0-a7c6-0133-63e0-5a0bf9327500.svg)](https://packagist.org/packages/yab/laracogs)
