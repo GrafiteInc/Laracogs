@@ -14,7 +14,7 @@ class CrudGeneratorTest extends PHPUnit_Framework_TestCase
         $this->config = [
             'bootstrap'                  => false,
             'semantic'                   => false,
-            'template_source'            => '',
+            'template_source'            => __DIR__.'/../src/Templates',
             '_sectionPrefix_'            => '',
             '_sectionTablePrefix_'       => '',
             '_sectionRoutePrefix_'       => '',
@@ -32,6 +32,7 @@ class CrudGeneratorTest extends PHPUnit_Framework_TestCase
             '_path_request_'             => vfsStream::url('Http/Requests'),
             '_path_routes_'              => vfsStream::url('Http/routes.php'),
             '_path_api_routes_'          => vfsStream::url('Http/api-routes.php'),
+            '_path_factory_'             => vfsStream::url('database/factories/ModelFactory.php'),
             'routes_prefix'              => '',
             'routes_suffix'              => '',
             '_namespace_services_'       => 'App\Services',
@@ -45,7 +46,6 @@ class CrudGeneratorTest extends PHPUnit_Framework_TestCase
             '_lower_casePlural_'         => str_plural(strtolower('testTable')),
             '_camel_case_'               => ucfirst(camel_case('testTable')),
             '_camel_casePlural_'         => str_plural(camel_case('testTable')),
-            'template_source'            => __DIR__.'/../src/Templates',
         ];
     }
 
@@ -148,5 +148,17 @@ class CrudGeneratorTest extends PHPUnit_Framework_TestCase
         $this->assertTrue($this->crud->hasChild('tests/integration/TestTableServiceIntegrationTest.php'));
         $contents = $this->crud->getChild('tests/integration/TestTableServiceIntegrationTest.php');
         $this->assertTrue(strpos($contents->getContent(), 'class TestTableServiceIntegrationTest') !== false);
+    }
+
+    public function testFactoryGenerator()
+    {
+        $this->crud = vfsStream::setup("database/factories");
+        file_put_contents(vfsStream::url('database/factories/ModelFactory.php'), 'test');
+
+        $this->generator->createFactory($this->config);
+        $contents = $this->crud->getChild('database/factories/ModelFactory.php');
+
+        $this->assertContains('TestTable::class', $contents->getContent());
+        $this->assertContains('$factory->define(', $contents->getContent());
     }
 }

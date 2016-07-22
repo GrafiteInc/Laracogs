@@ -109,6 +109,7 @@ class Crud extends Command
             '_path_routes_'              => app_path('Http/routes.php'),
             '_path_api_routes_'          => app_path('Http/api-routes.php'),
             '_path_migrations_'          => base_path('database/migrations'),
+            '_path_factory_'             => base_path('database/factories/ModelFactory.php'),
             'routes_prefix'              => '',
             'routes_suffix'              => '',
             '_app_namespace_'            => $this->getAppNamespace(),
@@ -232,6 +233,7 @@ class Crud extends Command
             '_path_routes_'              => app_path('Http/routes.php'),
             '_path_api_routes_'          => app_path('Http/api-routes.php'),
             '_path_migrations_'          => base_path('database/migrations'),
+            '_path_factory_'             => base_path('database/factories/ModelFactory.php'),
             'routes_prefix'              => "\n\nRoute::group(['namespace' => '".ucfirst($section)."', 'prefix' => '".strtolower($section)."', 'middleware' => ['web']], function () { \n",
             'routes_suffix'              => "\n});",
             '_app_namespace_'            => $this->getAppNamespace(),
@@ -400,7 +402,7 @@ class Crud extends Command
         }
 
         $this->line('Built tests...');
-        $this->line('Added '.$table.' to database/factories/ModelFactory...');
+        $this->line('Built factory...');
 
         if ($this->option('api') || $this->option('apiOnly')) {
             $this->line('Built api...');

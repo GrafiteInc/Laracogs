@@ -192,17 +192,23 @@ class CrudGenerator
      */
     public function createFactory($config)
     {
+        if (!is_dir(dirname($config['_path_factory_']))) {
+            mkdir(dirname($config['_path_factory_']), 0777, true);
+        }
+
+        if (!file_exists($config['_path_factory_'])) {
+            file_put_contents($config['_path_factory_'], '<?php');
+        }
+
         $factory = file_get_contents($config['template_source'].'/Factory.txt');
 
         $factory = $this->service->getTableSchema($config, $factory);
-
-        $factoryMaster = base_path('database/factories/ModelFactory.php');
 
         foreach ($config as $key => $value) {
             $factory = str_replace($key, $value, $factory);
         }
 
-        return file_put_contents($factoryMaster, $factory, FILE_APPEND);
+        return file_put_contents($config['_path_factory_'], $factory, FILE_APPEND);
     }
 
     /**
