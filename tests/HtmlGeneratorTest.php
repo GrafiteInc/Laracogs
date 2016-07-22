@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Config;
 use Illuminate\Container\Container as Container;
 use Illuminate\Support\Facades\Facade as Facade;
 use Yab\Laracogs\Generators\HtmlGenerator;
@@ -32,7 +31,7 @@ class HtmlGeneratorTest extends PHPUnit_Framework_TestCase
         $test = $this->html->makeHidden(['name' => 'test'], 'test', '');
 
         $this->assertTrue(is_string($test));
-        $this->assertEquals($test, '<input  id="Test" name="test" type="hidden" value="test">');
+        $this->assertEquals('<input  id="Test" name="test" type="hidden" value="test">', $test);
     }
 
     public function testMakeText()
@@ -44,7 +43,7 @@ class HtmlGeneratorTest extends PHPUnit_Framework_TestCase
         ], 'simple-test', 'data-thing');
 
         $this->assertTrue(is_string($test));
-        $this->assertEquals($test, '<textarea data-thing id="Test" class="form-control" name="test" placeholder="TestText">simple-test</textarea>');
+        $this->assertEquals('<textarea data-thing id="Test" class="form-control" name="test" placeholder="TestText">simple-test</textarea>', $test);
     }
 
     public function testMakeSelected()
@@ -61,7 +60,7 @@ class HtmlGeneratorTest extends PHPUnit_Framework_TestCase
         ], 'member', 'data-thing');
 
         $this->assertTrue(is_string($test));
-        $this->assertEquals($test, '<select data-thing id="Test" class="form-control" name="test"><option value="admin" >Admin</option><option value="member" selected>Member</option></select>');
+        $this->assertEquals('<select data-thing id="Test" class="form-control" name="test"><option value="admin" >Admin</option><option value="member" selected>Member</option></select>', $test);
     }
 
     public function testMakeCheckbox()
@@ -72,7 +71,7 @@ class HtmlGeneratorTest extends PHPUnit_Framework_TestCase
         ], 'selected', '');
 
         $this->assertTrue(is_string($test));
-        $this->assertEquals($test, '<input  id="Test" selected type="checkbox" name="test">');
+        $this->assertEquals('<input  id="Test" selected type="checkbox" name="test">', $test);
     }
 
     public function testMakeRadio()
@@ -83,7 +82,7 @@ class HtmlGeneratorTest extends PHPUnit_Framework_TestCase
         ], 'selected', '');
 
         $this->assertTrue(is_string($test));
-        $this->assertEquals($test, '<input  id="Test" selected type="radio" name="test">');
+        $this->assertEquals('<input  id="Test" selected type="radio" name="test">', $test);
     }
 
     public function testMakeInputString()
@@ -102,6 +101,6 @@ class HtmlGeneratorTest extends PHPUnit_Framework_TestCase
         ]);
 
         $this->assertTrue(is_string($test));
-        $this->assertEquals($test, '<input data-stuff id="Test" class="form-control" type="text" name="test"   value="sample Test" placeholder="wtf">');
+        $this->assertEquals('<input data-stuff id="Test" class="form-control" type="text" name="test"   value="sample Test" placeholder="wtf">', $test);
     }
 }

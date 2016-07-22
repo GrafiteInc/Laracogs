@@ -1,6 +1,5 @@
 <?php
 
-
 class AppTest extends Orchestra\Testbench\TestCase
 {
     protected $app;

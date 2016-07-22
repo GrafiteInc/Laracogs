@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Config;
 use Illuminate\Container\Container as Container;
 use Illuminate\Support\Facades\Facade as Facade;
 use Yab\Laracogs\Utilities\InputMaker;

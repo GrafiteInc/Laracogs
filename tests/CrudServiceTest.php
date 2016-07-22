@@ -47,21 +47,23 @@ class CrudServiceTest extends PHPUnit_Framework_TestCase
     public function testPrepareTableDefinition()
     {
         $table = "id:increments,name:string,details:text";
+
         $result = $this->service->prepareTableDefinition($table);
 
-        $this->assertTrue((bool) strstr($result, 'id'));
-        $this->assertTrue((bool) strstr($result, 'name'));
-        $this->assertTrue((bool) strstr($result, 'details'));
+        $this->assertContains('id', $result);
+        $this->assertContains('name', $result);
+        $this->assertContains('details', $result);
     }
 
     public function testPrepareTableExample()
     {
         $table = "id:increments,name:string,details:text,created_on:dateTime";
+
         $result = $this->service->prepareTableExample($table);
 
-        $this->assertTrue((bool) strstr($result, 'laravel'));
-        $this->assertTrue((bool) strstr($result, 'I am Batman'));
-        $this->assertTrue((bool) strstr($result, '1'));
+        $this->assertContains('laravel', $result);
+        $this->assertContains('I am Batman', $result);
+        $this->assertContains('1', $result);
     }
 
 }

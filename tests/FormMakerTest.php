@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Config;
 use Illuminate\Container\Container as Container;
 use Illuminate\Support\Facades\Facade as Facade;
 use Yab\Laracogs\Utilities\FormMaker;
@@ -59,7 +58,7 @@ class FormMakerTest extends PHPUnit_Framework_TestCase
         $test = $this->formMaker->fromArray($testArray);
 
         $this->assertTrue(is_string($test));
-        $this->assertEquals($test, '<div class="form-group "><label class="control-label" for="Name">Name</label><input  id="Name" class="form-control" type="text" name="name"    placeholder="Name"></div><div class="form-group "><label class="control-label" for="Age">Number</label><input  id="Age" class="form-control" type="number" name="age"    placeholder="Number"></div>');
+        $this->assertEquals('<div class="form-group "><label class="control-label" for="Name">Name</label><input  id="Name" class="form-control" type="text" name="name"    placeholder="Name"></div><div class="form-group "><label class="control-label" for="Age">Number</label><input  id="Age" class="form-control" type="number" name="age"    placeholder="Number"></div>', $test);
     }
 
     public function testFromArrayWithColumns()
@@ -72,18 +71,17 @@ class FormMakerTest extends PHPUnit_Framework_TestCase
         $test = $this->formMaker->fromArray($testArray, ['name']);
 
         $this->assertTrue(is_string($test));
-        $this->assertEquals($test, '<div class="form-group "><label class="control-label" for="Name">Name</label><input  id="Name" class="form-control" type="text" name="name"    placeholder="Name"></div>');
+        $this->assertEquals('<div class="form-group "><label class="control-label" for="Name">Name</label><input  id="Name" class="form-control" type="text" name="name"    placeholder="Name"></div>', $test);
     }
 
     public function testFromObject()
     {
-        (object) $testObject = [
+        $testObject = [
             'attributes' => [
                 'name' => 'Joe',
                 'age' => 18,
             ],
         ];
-
         $columns = [
             'name' => [
                 'type' => 'string',
@@ -93,9 +91,9 @@ class FormMakerTest extends PHPUnit_Framework_TestCase
             ]
         ];
 
-        $test = $this->formMaker->fromObject($testObject, $columns);
+        $test = $this->formMaker->fromObject((object) $testObject, $columns);
 
         $this->assertTrue(is_string($test));
-        $this->assertEquals($test, '<div class="form-group "><label class="control-label" for="Name">Name</label><input  id="Name" class="form-control" type="text" name="name"    placeholder="Name"></div><div class="form-group "><label class="control-label" for="Age">Age</label><input  id="Age" class="form-control" type="number" name="age"    placeholder="Age"></div>');
+        $this->assertEquals('<div class="form-group "><label class="control-label" for="Name">Name</label><input  id="Name" class="form-control" type="text" name="name"    placeholder="Name"></div><div class="form-group "><label class="control-label" for="Age">Age</label><input  id="Age" class="form-control" type="number" name="age"    placeholder="Age"></div>', $test);
     }
 }

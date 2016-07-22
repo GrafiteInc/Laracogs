@@ -60,8 +60,8 @@ class CrudValidatorTest extends AppTest
             ->with('migration')
             ->andReturn(true)
             ->getMock();
-
         $this->setExpectedException('Exception');
+
         $this->validator->validateSchema($this->command);
     }
 
@@ -78,6 +78,7 @@ class CrudValidatorTest extends AppTest
             ->andReturn(true);
 
         $test = $this->validator->validateSchema($this->command);
+
         $this->assertTrue($test);
     }
 
@@ -86,8 +87,8 @@ class CrudValidatorTest extends AppTest
         $this->command->shouldReceive('option')
             ->with('ui')
             ->andReturn('purecss');
-
         $this->setExpectedException('Exception');
+
         $this->validator->validateSchema($this->command);
     }
 
@@ -107,6 +108,7 @@ class CrudValidatorTest extends AppTest
             ->andReturn(true);
 
         $test = $this->validator->validateOptions($this->command);
+
         $this->assertTrue($test);
     }
 
@@ -124,8 +126,8 @@ class CrudValidatorTest extends AppTest
         $this->command->shouldReceive('option')
             ->with('migration')
             ->andReturn(false);
-
         $this->setExpectedException('Exception');
+
         $this->validator->validateOptions($this->command);
     }
 
@@ -143,8 +145,8 @@ class CrudValidatorTest extends AppTest
         $this->command->shouldReceive('option')
             ->with('migration')
             ->andReturn(false);
-
         $this->setExpectedException('Exception');
+
         $this->validator->validateOptions($this->command);
     }
 }
