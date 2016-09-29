@@ -68,14 +68,11 @@ class User extends Model implements
      * @return boolean
      */
     public function hasRole($role)
-    {
-        $roles = [];
-        foreach ($this->roles->toArray() as $userRole) {
-            array_push($roles, $userRole['name']);
-        }
-        return in_array($role, $roles);
+    {        
+        return array_search($role, 
+                           array_column($this->roles->toArray(), 'name')
+                          ) > -1;
     }
-
 
 
     /**
