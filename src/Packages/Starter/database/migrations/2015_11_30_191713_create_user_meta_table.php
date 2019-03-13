@@ -13,8 +13,7 @@ class CreateUserMetaTable extends Migration
     public function up()
     {
         Schema::create('user_meta', function (Blueprint $table) {
-			$table->engine = 'InnoDB';
-            $table->increments('id');
+			$table->increments('id');
 
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
