@@ -35,7 +35,7 @@ class UserMeta extends Model
      */
     public function user()
     {
-        return User::where('id', $this->user_id)->first();
+        return $this->belongsTo(User::class);
     }
 
 }
